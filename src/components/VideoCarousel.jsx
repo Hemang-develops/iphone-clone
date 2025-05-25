@@ -21,6 +21,7 @@ const VideoCarousel = () => {
     isLastVideo: false,
   });
   const { isEnd, startPlay, videoId, isPlaying, isLastVideo } = video;
+  
   useEffect(() => {
     if (loadedData.length > 3) {
       if (!isPlaying) {
