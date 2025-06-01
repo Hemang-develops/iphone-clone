@@ -21,6 +21,7 @@ const VideoCarousel = () => {
     isLastVideo: false,
   });
   const { isEnd, startPlay, videoId, isPlaying, isLastVideo } = video;
+  
   useEffect(() => {
     if (loadedData.length > 3) {
       if (!isPlaying) {
@@ -158,6 +159,7 @@ const VideoCarousel = () => {
                   playsInline={true}
                   preload="auto"
                   muted
+                  className={`${list.id === 2 && 'translate-44'} pointer-events-none`}
                   ref={(el) => {
                     videoRef.current[i] = el;
                   }}
@@ -170,7 +172,7 @@ const VideoCarousel = () => {
                   onEnded={() =>
                     i !== 3
                       ? handleProcess("video-end", i)
-                      : handleProcess("video-start")
+                      : handleProcess("video-last")
                   }
                   onLoadedMetadata={(e) => handleLoadedMetaData(i, e)}
                 >
